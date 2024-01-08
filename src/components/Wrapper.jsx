@@ -165,6 +165,9 @@ function Wrapper() {
               setTickets={setTickets}
               priceRegular={priceRegular}
               priceVip={priceVip}
+              // rettelse
+              setError={setError}
+              totalAmount={totalAmount}
             />
 
             <p className="text-right mt-4 text-red-500">{error}</p>

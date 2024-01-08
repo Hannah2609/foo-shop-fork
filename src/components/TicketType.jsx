@@ -15,6 +15,8 @@ function TicketType({
   setTickets, 
   priceVip,
   priceRegular,
+  setError,
+  totalAmount
 }) {
 
 
@@ -41,6 +43,8 @@ function TicketType({
             onClick={() => {
               if (ticketAmount > 0) {
                 setTicketAmount(ticketAmount - 1);
+                // rettelse - tilføjet
+                setError("");
                 setTickets((obj) => {
                   const removeFromBasket = obj.findIndex(
                     (ticket) => ticket.price === priceRegular
@@ -82,7 +86,10 @@ function TicketType({
             type="button"
             aria-label={`Tilføj 1 foo-billet`}
             onClick={() => {
-              setTicketAmount(ticketAmount + 1);
+              if (totalAmount < 10){
+                 setTicketAmount(ticketAmount + 1);
+                //  rettelse - tilføjet
+                setError("");
               setTickets((obj) =>
                 obj.concat({
                   ticketName: "FOO-billet",
@@ -90,6 +97,11 @@ function TicketType({
                   price: priceRegular,
                 })
               );
+              // Rettelse - tilføjet if else med max amount
+              } else {
+                setError("Du kan max købe 10 billetter pr. person")
+              }
+             
             }}
           >
             <svg
@@ -120,6 +132,8 @@ function TicketType({
             onClick={() => {
               if (vipAmount > 0) {
                 setVipAmount(vipAmount - 1);
+                // rettelse - tilføjet
+                setError("");
                 setTickets((obj) => {
                   const removeFromBasket = obj.findIndex(
                     (ticket) => ticket.price === priceVip
@@ -161,14 +175,21 @@ function TicketType({
             type="button"
             aria-label={`Tilføj 1 VIP-billet`}
             onClick={() => {
-              setVipAmount(vipAmount + 1);
-              setTickets((obj) =>
-                obj.concat({
-                  ticketName: "VIP-billet",
-                  id: obj.length,
-                  price: priceVip,
-                })
-              );
+              if (totalAmount < 10) {
+                setVipAmount(vipAmount + 1);
+                setError("");
+                setTickets((obj) =>
+                  obj.concat({
+                    ticketName: "VIP-billet",
+                    id: obj.length,
+                    price: priceVip,
+                  })
+                );
+                // Rettelse - tilføjet if else med max amount
+              } else {
+                setError("Du kan max købe 10 billetter pr. person");
+              }
+              
             }}
           >
             <svg
