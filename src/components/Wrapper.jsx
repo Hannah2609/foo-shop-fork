@@ -226,7 +226,7 @@ function Wrapper() {
                 }
               }}
             >
-              RESEVER BILLETTER
+              RESERVER BILLETTER
             </button>
           </div>
 
