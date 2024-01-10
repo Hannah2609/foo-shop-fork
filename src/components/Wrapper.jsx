@@ -174,10 +174,12 @@ function Wrapper() {
             <button
               className="font-medium enabled:bg-fooPink-900 aria-disabled:bg-fooPink-900 aria-disabled:opacity-50 mt-10 p-4 px-8 rounded-full w-full md:w-fit place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-800 aria-duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
-              aria-disabled={totalAmount < 1}
+              aria-disabled={totalAmount < 1 || totalAmount > 10}
               onClick={() => {
                 if (totalAmount < 1) {
                   setError("Du skal vælge en billet!");
+                } else if (totalAmount > 10) {
+                  setError("Du kan maks vælge 10 billetter!");
                 } else {
                   setStep((prevStep) => prevStep + 1);
                   setError("");

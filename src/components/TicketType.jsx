@@ -72,13 +72,35 @@ function TicketType({
           </button>
 
           {/* INPUT FOO-BILLET */}
-          <input
+          {/* gamle kode */}
+          {/* <input
             className="text-black mx-4 appearance-none border p-2 rounded w-20"
             type="number"
             min={0}
             name="billet"
             id="foo-billet"
             value={ticketAmount}
+          /> */}
+          {/* rettelse, tilføjet onChange handler*/}
+          <input
+            className="text-black mx-4 appearance-none border p-2 rounded w-20"
+            type="number"
+            min={0}
+            max={10}
+            name="billet"
+            id="foo-billet"
+            value={ticketAmount}
+            onChange={(event) => {
+              // laver value om til tal så vi kan bruge det når vi tillægger værdien i totalAmount
+              const inputAmount = parseInt(event.target.value, 10) || 0;
+              if (inputAmount < 11 && totalAmount < 11) {
+                setTicketAmount(inputAmount);
+                setError("");
+              } else if (totalAmount > 10) {
+                setError("Du kan maks købe 10 billetter pr. person");
+              }
+            }}
+            onFocus={() => setTicketAmount("")}
           />
 
           {/* TILFØJ 1 FOO-BILLet */}
@@ -86,22 +108,21 @@ function TicketType({
             type="button"
             aria-label={`Tilføj 1 foo-billet`}
             onClick={() => {
-              if (totalAmount < 10){
-                 setTicketAmount(ticketAmount + 1);
+              if (totalAmount < 10) {
+                setTicketAmount(ticketAmount + 1);
                 //  rettelse - tilføjet
                 setError("");
-              setTickets((obj) =>
-                obj.concat({
-                  ticketName: "FOO-billet",
-                  id: obj.length,
-                  price: priceRegular,
-                })
-              );
-              // Rettelse - tilføjet if else med max amount
+                setTickets((obj) =>
+                  obj.concat({
+                    ticketName: "FOO-billet",
+                    id: obj.length,
+                    price: priceRegular,
+                  })
+                );
+                // Rettelse - tilføjet if else med max amount
               } else {
-                setError("Du kan max købe 10 billetter pr. person")
+                setError("Du kan maks købe 10 billetter pr. person");
               }
-             
             }}
           >
             <svg
@@ -161,13 +182,33 @@ function TicketType({
           </button>
 
           {/* INPUT VIP */}
-          <input
+          {/* <input
             className="text-black mx-4 appearance-none border p-2 rounded w-20"
             type="number"
             name="billet"
             id="vip-billet"
             min={0}
             value={vipAmount}
+          /> */}
+          {/* rettelse, tilføjet onChange handler*/}
+          <input
+            className="text-black mx-4 appearance-none border p-2 rounded w-20"
+            type="number"
+            min={0}
+            max={10}
+            name="billet"
+            id="foo-billet"
+            value={vipAmount}
+            onChange={(event) => {
+              const inputVipAmount = parseInt(event.target.value, 10) || 0;
+              if (inputVipAmount < 11 && totalAmount < 11) {
+                setVipAmount(inputVipAmount);
+                setError("");
+              } else if (totalAmount > 10) {
+                setError("Du kan maks købe 10 billetter pr. person");
+              }
+            }}
+            onFocus={() => setVipAmount("")}
           />
 
           {/* TILFØJ 1 VIP-billet  */}
@@ -187,9 +228,8 @@ function TicketType({
                 );
                 // Rettelse - tilføjet if else med max amount
               } else {
-                setError("Du kan max købe 10 billetter pr. person");
+                setError("Du kan maks købe 10 billetter pr. person");
               }
-              
             }}
           >
             <svg
@@ -205,7 +245,6 @@ function TicketType({
           </button>
         </label>
       </div>
-
     </fieldset>
   );
 }
