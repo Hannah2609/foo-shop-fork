@@ -147,10 +147,10 @@ function Info({ tickets, setStep }) {
           className="font-medium enabled:bg-fooPink-900 aria-disabled:bg-fooPink-900 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10 transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-800 duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
           aria-disabled={
-            !infoForms.every(
-              (form) =>
-                form.firstName && form.lastName && form.email && form.phone
-            )
+            infoForms.firstName === "" ||
+            infoForms.lastName === "" ||
+            infoForms.email === "" ||
+            infoForms.phone === ""
           }
           onClick={handleBtn}
         >
