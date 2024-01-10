@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { Bebas_Neue } from "next/font/google";
-import { useState, useEffect } from "react";
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -8,34 +7,38 @@ const bebasNeue = Bebas_Neue({
   display: "swap",
 });
 
-
 function Info({ tickets, setStep }) {
- const [infoForm, setInfoForm] = useState({
-   firstName: "",
-   lastName: "",
-   email: "",
-   phone: "",
-   errors: {},
- });
+  const [infoForms, setInfoForms] = useState(() =>
+    tickets.map(() => ({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      errors: {},
+    }))
+  );
 
-
-  const handleChange = (e) => {
-    setInfoForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const handleChange = (index, e) => {
+    const { name, value } = e.target;
+    setInfoForms((prevForms) => {
+      const updatedForms = [...prevForms];
+      updatedForms[index] = { ...updatedForms[index], [name]: value };
+      return updatedForms;
+    });
   };
 
-     const handleBtn = () => {
-       if (
-         infoForm.firstName &&
-         infoForm.lastName &&
-         infoForm.email &&
-         infoForm.phone 
-       ) {
-         console.log("info is valid!");
-         setStep((prevStep) => prevStep + 1);
-       } else {
-         console.log("info not valid");
-       }
-     }; 
+  const handleBtn = () => {
+    const isValid = infoForms.every(
+      (form) => form.firstName && form.lastName && form.email && form.phone
+    );
+
+    if (isValid) {
+      console.log("All info is valid!");
+      setStep((prevStep) => prevStep + 1);
+    } else {
+      console.log("Some info is not valid");
+    }
+  };
 
   return (
     <fieldset id="infoStep">
@@ -48,7 +51,7 @@ function Info({ tickets, setStep }) {
         UDFYLD INFORMATION TIL DIN BILLET
       </p>
 
-      {tickets.map((ticket) => (
+      {tickets.map((ticket, index) => (
         <div
           className="container mx-auto border-b border-white mb-6 pb-4"
           key={ticket.id}
@@ -75,8 +78,8 @@ function Info({ tickets, setStep }) {
                 placeholder="Fornavn"
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 id={`firstName${ticket.id}`}
-                value={infoForm.firstName}
-                onChange={handleChange}
+                value={infoForms[index] && infoForms[index].firstName}
+                onChange={(e) => handleChange(index, e)}
                 name="firstName"
                 minLength={2}
                 required
@@ -94,8 +97,8 @@ function Info({ tickets, setStep }) {
                 placeholder="Efternavn"
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 id={`lastName${ticket.id}`}
-                value={infoForm.lastName}
-                onChange={handleChange}
+                value={infoForms[index] && infoForms[index].lastName}
+                onChange={(e) => handleChange(index, e)}
                 name="lastName"
                 required
               ></input>
@@ -112,8 +115,8 @@ function Info({ tickets, setStep }) {
                 placeholder="eksempel@mail.com"
                 id={`email${ticket.id}`}
                 name="email"
-                value={infoForm.email}
-                onChange={handleChange}
+                value={infoForms[index] && infoForms[index].email}
+                onChange={(e) => handleChange(index, e)}
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 required
               ></input>
@@ -131,8 +134,8 @@ function Info({ tickets, setStep }) {
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 id={`phone${ticket.id}`}
                 name="phone"
-                value={infoForm.phone}
-                onChange={handleChange}
+                value={infoForms[index] && infoForms[index].phone}
+                onChange={(e) => handleChange(index, e)}
                 required
               ></input>
             </div>
@@ -144,10 +147,10 @@ function Info({ tickets, setStep }) {
           className="font-medium enabled:bg-fooPink-900 aria-disabled:bg-fooPink-900 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10 transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-800 duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
           aria-disabled={
-            infoForm.firstName === "" ||
-            infoForm.lastName === "" ||
-            infoForm.email === "" ||
-            infoForm.phone === ""
+            !infoForms.every(
+              (form) =>
+                form.firstName && form.lastName && form.email && form.phone
+            )
           }
           onClick={handleBtn}
         >
