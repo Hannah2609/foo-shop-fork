@@ -90,17 +90,6 @@ function TicketType({
             name="billet"
             id="foo-billet"
             value={ticketAmount}
-            onChange={(event) => {
-              // laver value om til tal så vi kan bruge det når vi tillægger værdien i totalAmount
-              const inputAmount = parseInt(event.target.value, 10) || 0;
-              if (inputAmount < 11 && totalAmount < 11) {
-                setTicketAmount(inputAmount);
-                setError("");
-              } else if (totalAmount > 10) {
-                setError("Du kan maks købe 10 billetter pr. person");
-              }
-            }}
-            onFocus={() => setTicketAmount("")}
           />
 
           {/* TILFØJ 1 FOO-BILLet */}
@@ -199,16 +188,6 @@ function TicketType({
             name="billet"
             id="foo-billet"
             value={vipAmount}
-            onChange={(event) => {
-              const inputVipAmount = parseInt(event.target.value, 10) || 0;
-              if (inputVipAmount < 11 && totalAmount < 11) {
-                setVipAmount(inputVipAmount);
-                setError("");
-              } else if (totalAmount > 10) {
-                setError("Du kan maks købe 10 billetter pr. person");
-              }
-            }}
-            onFocus={() => setVipAmount("")}
           />
 
           {/* TILFØJ 1 VIP-billet  */}
