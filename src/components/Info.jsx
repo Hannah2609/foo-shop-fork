@@ -73,6 +73,7 @@ function Info({ tickets, setStep }) {
                 placeholder="Fornavn"
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 id={`firstName${ticket.id}`}
+                //Rettelse
                 value={infoForm[index] && infoForm.firstName}
                 onChange={handleChange}
                 name="firstName"
@@ -92,6 +93,7 @@ function Info({ tickets, setStep }) {
                 placeholder="Efternavn"
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 id={`lastName${ticket.id}`}
+                //Rettelse
                 value={infoForm[index] && infoForm.lastName}
                 onChange={handleChange}
                 name="lastName"
@@ -110,6 +112,7 @@ function Info({ tickets, setStep }) {
                 placeholder="eksempel@mail.com"
                 id={`email${ticket.id}`}
                 name="email"
+                //Rettelse
                 value={infoForm[index] && infoForm.email}
                 onChange={handleChange}
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
@@ -129,6 +132,7 @@ function Info({ tickets, setStep }) {
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 id={`phone${ticket.id}`}
                 name="phone"
+                //Rettelse
                 value={infoForm[index] && infoForm.phone}
                 onChange={handleChange}
                 required
