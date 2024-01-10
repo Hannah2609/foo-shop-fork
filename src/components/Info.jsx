@@ -8,34 +8,32 @@ const bebasNeue = Bebas_Neue({
   display: "swap",
 });
 
-
 function Info({ tickets, setStep }) {
- const [infoForm, setInfoForm] = useState({
-   firstName: "",
-   lastName: "",
-   email: "",
-   phone: "",
-   errors: {},
- });
-
+  const [infoForm, setInfoForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    errors: {},
+  });
 
   const handleChange = (e) => {
     setInfoForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-     const handleBtn = () => {
-       if (
-         infoForm.firstName &&
-         infoForm.lastName &&
-         infoForm.email &&
-         infoForm.phone 
-       ) {
-         console.log("info is valid!");
-         setStep((prevStep) => prevStep + 1);
-       } else {
-         console.log("info not valid");
-       }
-     }; 
+  const handleBtn = () => {
+    if (
+      infoForm.firstName &&
+      infoForm.lastName &&
+      infoForm.email &&
+      infoForm.phone
+    ) {
+      console.log("info is valid!");
+      setStep((prevStep) => prevStep + 1);
+    } else {
+      console.log("info not valid");
+    }
+  };
 
   return (
     <fieldset id="infoStep">
@@ -48,7 +46,7 @@ function Info({ tickets, setStep }) {
         UDFYLD INFORMATION TIL DIN BILLET
       </p>
 
-      {tickets.map((ticket) => (
+      {tickets.map((ticket, index) => (
         <div
           className="container mx-auto border-b border-white mb-6 pb-4"
           key={ticket.id}
@@ -75,7 +73,7 @@ function Info({ tickets, setStep }) {
                 placeholder="Fornavn"
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 id={`firstName${ticket.id}`}
-                value={infoForm.firstName}
+                value={infoForm[index] && infoForm.firstName}
                 onChange={handleChange}
                 name="firstName"
                 minLength={2}
@@ -94,7 +92,7 @@ function Info({ tickets, setStep }) {
                 placeholder="Efternavn"
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 id={`lastName${ticket.id}`}
-                value={infoForm.lastName}
+                value={infoForm[index] && infoForm.lastName}
                 onChange={handleChange}
                 name="lastName"
                 required
@@ -112,7 +110,7 @@ function Info({ tickets, setStep }) {
                 placeholder="eksempel@mail.com"
                 id={`email${ticket.id}`}
                 name="email"
-                value={infoForm.email}
+                value={infoForm[index] && infoForm.email}
                 onChange={handleChange}
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 required
@@ -131,7 +129,7 @@ function Info({ tickets, setStep }) {
                 className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
                 id={`phone${ticket.id}`}
                 name="phone"
-                value={infoForm.phone}
+                value={infoForm[index] && infoForm.phone}
                 onChange={handleChange}
                 required
               ></input>
