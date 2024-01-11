@@ -174,6 +174,7 @@ function Wrapper() {
             <button
               className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 mt-10 p-4 px-8 rounded-full w-full md:w-fit place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 aria-duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
+              aria-label="Vælg camping"
               aria-disabled={totalAmount < 1 || totalAmount > 10}
               onClick={() => {
                 if (totalAmount < 1) {
@@ -217,6 +218,7 @@ function Wrapper() {
             <button
               className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10 place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer disabled:cursor-not-allowed
               "
+              aria-label="Reserver billetter"
               aria-disabled={campingBtnDisabled}
               onClick={() => {
                 if (selectedArea === null) {
@@ -272,6 +274,7 @@ function Wrapper() {
               <button
                 type="submit"
                 id="bookingForm"
+                aria-label="Gennemfør køb"
                 className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 w-full p-4 px-8 rounded-full mt-6 place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
               >

@@ -155,6 +155,7 @@ function Info({ tickets, setStep }) {
         <button
           className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10 transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
+          aria-label="Gå til betaling"    
           aria-disabled={
             infoForm.firstName === "" ||
             infoForm.lastName === "" ||
