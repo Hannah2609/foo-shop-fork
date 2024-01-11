@@ -149,7 +149,7 @@ function Basket(props) {
           <h3 className="font-bold">I ALT</h3> <h3>{total} DKK</h3>
         </div>
         <div className="lg:hidden">
-          <button className="mt-3" onClick={() => setBasket(!basket)}>
+          <button className="mt-3" aria-label="open or close basket" onClick={() => setBasket(!basket)}>
             {basket ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
