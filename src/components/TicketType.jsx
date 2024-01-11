@@ -22,20 +22,20 @@ function TicketType({
 
   return (
     <fieldset className="mb-8 lg:mb-10">
-      <h2
+      <legend
         className={`${bebasNeue.className} text-3xl md:text-4xl text-fooYellow-200 mb-10`}
       >
         VÆLG DINE BILLETTER
-      </h2>
+      </legend>
 
       {/* FOO-BILLET sektion */}
-      <div className="flex justify-between">
+      <label className="flex justify-between" htmlFor="foo-billet">
         <div>
           <h3 className="font-medium text-lg md:text-2xl">FOO-BILLET</h3>
           <p className="text-base md:text-lg text-fooGrey-200">799 DKK</p>
         </div>
 
-        <label className="flex items-center" htmlFor="foo-billet">
+        <div className="flex items-center">
           {/* FJERN 1 FOO-BILLET  */}
           <button
             type="button"
@@ -72,21 +72,10 @@ function TicketType({
           </button>
 
           {/* INPUT FOO-BILLET */}
-          {/* gamle kode */}
-          {/* <input
-            className="text-black mx-4 appearance-none border p-2 rounded w-20"
-            type="number"
-            min={0}
-            name="billet"
-            id="foo-billet"
-            value={ticketAmount}
-          /> */}
-          {/* rettelse, tilføjet onChange handler*/}
           <input
             className="text-black mx-4 appearance-none border p-2 rounded w-20"
             type="number"
             min={0}
-            max={10}
             name="billet"
             id="foo-billet"
             value={ticketAmount}
@@ -125,16 +114,16 @@ function TicketType({
               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
             </svg>
           </button>
-        </label>
-      </div>
+        </div>
+      </label>
 
       {/* VIP-BILLET sektion */}
-      <div className="flex justify-between mt-10">
+      <label className="flex justify-between mt-10" htmlFor="vip-billet">
         <div>
           <h3 className="font-medium text-lg md:text-2xl">VIP-BILLET</h3>
           <p className="text-base md:text-lg text-fooGrey-200">1299 DKK</p>
         </div>
-        <label className="flex items-center" htmlFor="vip-billet">
+        <div className="flex items-center">
           {/* FJERN 1 VIP-billet  */}
           <button
             type="button"
@@ -171,22 +160,12 @@ function TicketType({
           </button>
 
           {/* INPUT VIP */}
-          {/* <input
+          <input
             className="text-black mx-4 appearance-none border p-2 rounded w-20"
             type="number"
             name="billet"
             id="vip-billet"
             min={0}
-            value={vipAmount}
-          /> */}
-          {/* rettelse, tilføjet onChange handler*/}
-          <input
-            className="text-black mx-4 appearance-none border p-2 rounded w-20"
-            type="number"
-            min={0}
-            max={10}
-            name="billet"
-            id="foo-billet"
             value={vipAmount}
           />
 
@@ -195,6 +174,8 @@ function TicketType({
             type="button"
             aria-label={`Tilføj 1 VIP-billet`}
             onClick={() => {
+              // Rettelse - tilføjet if else med max amount
+
               if (totalAmount < 10) {
                 setVipAmount(vipAmount + 1);
                 setError("");
@@ -205,7 +186,6 @@ function TicketType({
                     price: priceVip,
                   })
                 );
-                // Rettelse - tilføjet if else med max amount
               } else {
                 setError("Du kan maks købe 10 billetter pr. person");
               }
@@ -222,8 +202,8 @@ function TicketType({
               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
             </svg>
           </button>
-        </label>
-      </div>
+        </div>
+      </label>
     </fieldset>
   );
 }

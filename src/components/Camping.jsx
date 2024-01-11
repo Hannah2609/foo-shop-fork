@@ -22,11 +22,11 @@ function Camping(props) {
     <fieldset>
       {/* VÆLG CAMPING AREA */}
       <div>
-        <h2
+        <legend
           className={`${bebasNeue.className} text-3xl md:text-4xl text-fooYellow-200 mb-2`}
         >
           VÆLG CAMPING OMRÅDE
-        </h2>
+        </legend>
         <p className="text-sm text-fooGrey-200">CAMPING RESEVERTATION 99 DKK</p>
         <div className="flex flex-wrap gap-4 sm:gap-6 mt-8">
           {props.campingAreas

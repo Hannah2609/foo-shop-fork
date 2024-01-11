@@ -79,11 +79,11 @@ function Payment({ setStep }) {
 
   return (
     <fieldset>
-      <h2
+      <legend
         className={`${bebasNeue.className} text-3xl md:text-4xl text-fooYellow-200 mb-10`}
       >
         BETALINGSOPLYSNINGER
-      </h2>
+      </legend>
       <div className="flex flex-col sm:flex-row gap-10 sm:gap-8 items-center ">
         <div>
           <Cards
@@ -129,6 +129,7 @@ function Payment({ setStep }) {
               required
             />
           </label>
+
           <div className="flex gap-4 w-full">
             <label htmlFor="expiry" className="text-sm text-fooGrey-200">
               Udløbsdato
@@ -147,6 +148,7 @@ function Payment({ setStep }) {
                 required
               />
             </label>
+
             <label htmlFor="cvc" className="text-sm text-fooGrey-200">
               Kontrolcifre
               <input
@@ -163,6 +165,7 @@ function Payment({ setStep }) {
               />
             </label>
           </div>
+          
         </div>
       </div>
       <div className="flex justify-end">

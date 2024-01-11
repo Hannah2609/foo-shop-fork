@@ -100,7 +100,7 @@ function FinalOverview(props) {
       </div>
       <div>
         <div className="pt-4 border-t">
-          <h3 className="text-base font-bold mb-1">OVERSIGT</h3>
+          <h4 className="text-base font-bold mb-1">OVERSIGT</h4>
 
           <div className="flex justify-between text-sm md:text-base text-fooGrey-200">
             <p>Billetter x {props.totalAmount}</p> <p> {ticketsTotal} DKK</p>
@@ -137,17 +137,15 @@ function FinalOverview(props) {
         </div>
 
         <div className="flex justify-between text-2xl md:text-3xl font-semibold mt-8">
-          <p>I alt</p> <p>{total} DKK</p>
+          <h3>I alt</h3> <h3>{total} DKK</h3>
         </div>
       </div>
 
 
-      <div className="flex gap-2 items-center mt-6">
-        <input type="checkbox" id="jatak" required className="w-3 h-3" />
-        <label htmlFor="jatak" className="text-sm">
+        <label htmlFor="jatak" className="text-sm flex gap-2 items-center mt-6 cursor-pointer">
+          <input type="checkbox" id="jatak" required className="w-3 h-3" />
           Jeg accepterer købsbetingelser
         </label>
-      </div>
 
     </aside>
   );

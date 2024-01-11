@@ -88,7 +88,7 @@ function Basket(props) {
                 src={"emptyBasket.svg"}
                 width={100}
                 height={100}
-                alt="Kurven er tom"
+                alt="empty basket svg"
               />
               <p className="text-fooGrey-200 text-sm">Kurven er tom</p>
             </div>
@@ -108,7 +108,7 @@ function Basket(props) {
           )}
         </div>
         <div className="pt-4 border-t">
-          <h3 className="text-sm font-bold mb-1">OVERSIGT</h3>
+          <h4 className="text-sm font-bold mb-1">OVERSIGT</h4>
 
           <div className="flex justify-between text-sm text-fooGrey-200">
             <p>Billetter x {props.totalAmount}</p> <p> {ticketsTotal} DKK</p>
@@ -146,7 +146,7 @@ function Basket(props) {
       </section>
       <section className="flex justify-between lg:block">
         <div className="flex justify-between text-lg font-medium mt-4 gap-5">
-          <p className="font-bold">I ALT</p> <p>{total} DKK</p>
+          <h3 className="font-bold">I ALT</h3> <h3>{total} DKK</h3>
         </div>
         <div className="lg:hidden">
           <button className="mt-3" onClick={() => setBasket(!basket)}>

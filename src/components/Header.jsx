@@ -24,7 +24,7 @@ function Header() {
           src="/logo.svg"
           width={200}
           height={200}
-          alt="logo"
+          alt="logo svg"
           className=" -mr-16 -mb-4 md:-mb-8 "
         />
       </div>
