@@ -165,12 +165,12 @@ function Payment({ setStep }) {
               />
             </label>
           </div>
-          
+
         </div>
       </div>
       <div className="flex justify-end">
         <button
-          className="font-medium enabled:bg-fooPink-900 aria-disabled:bg-fooPink-900 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10  place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-800 duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
+          className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10  place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
           aria-disabled={
             cardInfo.number === "" ||

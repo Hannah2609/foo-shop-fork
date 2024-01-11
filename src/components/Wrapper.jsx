@@ -172,7 +172,7 @@ function Wrapper() {
 
             <p className="text-right mt-4 text-red-500">{error}</p>
             <button
-              className="font-medium enabled:bg-fooPink-900 aria-disabled:bg-fooPink-900 aria-disabled:opacity-50 mt-10 p-4 px-8 rounded-full w-full md:w-fit place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-800 aria-duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
+              className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 mt-10 p-4 px-8 rounded-full w-full md:w-fit place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 aria-duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
               aria-disabled={totalAmount < 1 || totalAmount > 10}
               onClick={() => {
@@ -215,7 +215,7 @@ function Wrapper() {
             />
             <p className="text-right mt-6 text-red-500">{error}</p>
             <button
-              className="font-medium enabled:bg-fooPink-900 aria-disabled:bg-fooPink-900 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10 place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-800 duration-300 enabled:cursor-pointer disabled:cursor-not-allowed
+              className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10 place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer disabled:cursor-not-allowed
               "
               aria-disabled={campingBtnDisabled}
               onClick={() => {
@@ -272,7 +272,7 @@ function Wrapper() {
               <button
                 type="submit"
                 id="bookingForm"
-                className="font-medium enabled:bg-fooPink-900 aria-disabled:bg-fooPink-900 aria-disabled:opacity-50 w-full p-4 px-8 rounded-full mt-6 place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-800 duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
+                className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 w-full p-4 px-8 rounded-full mt-6 place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
               >
                 GENNEMFØR KØB

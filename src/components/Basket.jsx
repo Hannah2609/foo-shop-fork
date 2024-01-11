@@ -108,7 +108,7 @@ function Basket(props) {
           )}
         </div>
         <div className="pt-4 border-t">
-          <h4 className="text-sm font-bold mb-1">OVERSIGT</h4>
+          <h3 className="text-sm font-bold mb-1">OVERSIGT</h3>
 
           <div className="flex justify-between text-sm text-fooGrey-200">
             <p>Billetter x {props.totalAmount}</p> <p> {ticketsTotal} DKK</p>
