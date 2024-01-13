@@ -9,6 +9,7 @@ import Payment from "./Payment";
 import EndPage from "./EndPage";
 import FinalOverview from "./FinalOverview";
 import Timer from "./Timer";
+import TilbageKnap from "./TilbageKnap";
 
 function Wrapper() {
   // Skift mellem views ud fra steps
@@ -28,7 +29,6 @@ function Wrapper() {
 
   const campingBtnDisabled = selectedArea === null;
   const [error, setError] = useState("");
-
 
   // antal telt tilføjelser
   const [twoPersonTentAmount, setTwoPersonTentAmount] = useState(0);
@@ -171,6 +171,7 @@ function Wrapper() {
             />
 
             <p className="text-right mt-4 text-red-500">{error}</p>
+
             <button
               className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 mt-10 p-4 px-8 rounded-full w-full md:w-fit place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 aria-duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
@@ -215,6 +216,9 @@ function Wrapper() {
               setError={setError}
             />
             <p className="text-right mt-6 text-red-500">{error}</p>
+
+            <div className="flex justify-end gap-4">
+             <TilbageKnap setStep={setStep} /> 
             <button
               className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10 place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer disabled:cursor-not-allowed
               "
@@ -232,6 +236,7 @@ function Wrapper() {
             >
               RESERVER BILLETTER
             </button>
+          </div>
           </div>
 
           <div

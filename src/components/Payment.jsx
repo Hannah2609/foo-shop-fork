@@ -3,6 +3,7 @@ import "react-credit-cards-2/dist/es/styles-compiled.css";
 import { useState } from "react";
 import Cards from "react-credit-cards-2";
 import { Bebas_Neue } from "next/font/google";
+import TilbageKnap from "./TilbageKnap";
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -101,8 +102,8 @@ function Payment({ setStep }) {
               className="p-2 rounded-lg w-full  text-black border-2 focus:outline-none focus:ring-2 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-50 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-green-500 invalid:[&:not(:placeholder-shown):not(:focus)]:focus:ring-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-50 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400"
               unique="cardNumber"
               placeholder="Kort nummer"
-              minLength={16}
-              maxLength={16}
+              minLength="16"
+              maxLength="16"
               name="number"
               id="number"
               value={cardInfo.number}
@@ -122,7 +123,7 @@ function Payment({ setStep }) {
               name="name"
               id="name"
               autoComplete="true"
-              minLength={2}
+              minLength="2"
               value={cardInfo.name}
               onChange={handleChange}
               onFocus={handleInputFocus}
@@ -167,7 +168,8 @@ function Payment({ setStep }) {
           </div>
         </div>
       </div>
-      <div className="flex justify-end">
+      <div className="flex flex-col-reverse lg:justify-end lg:gap-4">
+        <TilbageKnap setStep={setStep}/>
         <button
           className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10  place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer aria-disabled:cursor-not-allowed
               "
