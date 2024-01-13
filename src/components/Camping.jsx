@@ -28,7 +28,12 @@ function Camping(props) {
         >
           VÆLG CAMPING OMRÅDE
         </legend>
-        <p className="text-sm text-fooGrey-200">CAMPING RESEVERTATION 99 DKK</p>
+        <div className="flex">
+          <p className="text-sm text-fooGrey-200">
+            CAMPING RESEVERTATION 99 DKK
+          </p>
+          <ToolTip text={"Information om grøn camping som er lidt lang"} />
+        </div>
         <div className="flex flex-wrap gap-4 sm:gap-6 mt-8">
           {props.campingAreas
             .filter((spot) => spot.available > props.totalAmount)

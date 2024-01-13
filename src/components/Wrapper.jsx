@@ -217,26 +217,26 @@ function Wrapper() {
             />
             <p className="text-right mt-6 text-red-500">{error}</p>
 
-            <div className="flex justify-end gap-4">
-             <TilbageKnap setStep={setStep} /> 
-            <button
-              className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10 place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer disabled:cursor-not-allowed
+            <div className="flex flex-col-reverse lg:justify-end lg:gap-4">
+              <TilbageKnap setStep={setStep} />
+              <button
+                className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10 place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer disabled:cursor-not-allowed
               "
-              aria-label="Reserver billetter"
-              aria-disabled={campingBtnDisabled}
-              onClick={() => {
-                if (selectedArea === null) {
-                  setError("Du skal vælge et campingområde!");
-                } else {
-                  setStep((prevStep) => prevStep + 1);
-                  reserveSpot();
-                  setError("");
-                }
-              }}
-            >
-              RESERVER BILLETTER
-            </button>
-          </div>
+                aria-label="Reserver billetter"
+                aria-disabled={campingBtnDisabled}
+                onClick={() => {
+                  if (selectedArea === null) {
+                    setError("Du skal vælge et campingområde!");
+                  } else {
+                    setStep((prevStep) => prevStep + 1);
+                    reserveSpot();
+                    setError("");
+                  }
+                }}
+              >
+                RESERVER BILLETTER
+              </button>
+            </div>
           </div>
 
           <div

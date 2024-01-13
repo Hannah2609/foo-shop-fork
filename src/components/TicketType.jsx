@@ -34,7 +34,7 @@ function TicketType({
         <div>
           <div className="flex items-center">
             <h2 className="font-medium text-lg md:text-2xl">FOO-BILLET</h2>
-            <ToolTip text={"information tekst"} />
+            <ToolTip text={"information omkring foo-billet. Hvad man får når man køber den type billet vs VIP billetten"} />
           </div>
 
           <p className="text-base md:text-lg text-fooGrey-200">799 DKK</p>
@@ -78,7 +78,7 @@ function TicketType({
 
           {/* INPUT FOO-BILLET */}
           <input
-            className="text-black mx-4 appearance-none border p-2 rounded w-20"
+            className="text-black mx-4 appearance-none border p-2 rounded w-10 md:w-20"
             type="number"
             min={0}
             name="billet"
@@ -125,9 +125,9 @@ function TicketType({
       {/* VIP-BILLET sektion */}
       <label className="flex justify-between mt-10" htmlFor="vip-billet">
         <div>
-          <div className="flex items-center"> 
-          <h2 className="font-medium text-lg md:text-2xl">VIP-BILLET</h2>
-          <ToolTip text={"information tekst"} />
+          <div className="flex items-center">
+            <h2 className="font-medium text-lg md:text-2xl">VIP-BILLET</h2>
+            <ToolTip text={"information tekst"} />
           </div>
           <p className="text-base md:text-lg text-fooGrey-200">1299 DKK</p>
         </div>
@@ -169,7 +169,7 @@ function TicketType({
 
           {/* INPUT VIP */}
           <input
-            className="text-black mx-4 appearance-none border p-2 rounded w-20"
+            className="text-black mx-4 appearance-none border p-2 rounded w-10 md:w-20"
             type="number"
             name="billet"
             id="vip-billet"
