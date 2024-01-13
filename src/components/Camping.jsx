@@ -1,5 +1,6 @@
 import React from "react";
 import { Bebas_Neue } from "next/font/google";
+import ToolTip from "./ToolTip";
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -196,10 +197,11 @@ function Camping(props) {
                   type="button"
                   aria-label={`Tilføj 1x 3-personers telt`}
                   onClick={() => {
-                    if (totalThreeTentAmount + totalTwoTentAmount < props.totalAmount) {
-                      props.setThreePersonTentAmount(
-                        totalThreeTentAmount + 1
-                      );
+                    if (
+                      totalThreeTentAmount + totalTwoTentAmount <
+                      props.totalAmount
+                    ) {
+                      props.setThreePersonTentAmount(totalThreeTentAmount + 1);
                     } else {
                       console.log("nope");
                       props.setError(
@@ -240,12 +242,18 @@ function Camping(props) {
               checked={props.greenCamping}
               onChange={() => props.setGreenCamping((prevValue) => !prevValue)}
             />
-            <label htmlFor="green" className="font-medium text-base sm:text-lg">
-              GRØN CAMPING
-              <p className="text-sm text-fooGrey-200">
-                + {props.greenCampingPrice} DKK
-              </p>
-            </label>
+            <div className="flex items-start">
+              <label
+                htmlFor="green"
+                className="font-medium text-base sm:text-lg"
+              >
+                GRØN CAMPING
+                <p className="text-sm text-fooGrey-200">
+                  + {props.greenCampingPrice} DKK
+                </p>
+              </label>
+              <ToolTip text={"Information om grøn camping som er lidt lang"} />
+            </div>
           </div>
         </div>
       </div>

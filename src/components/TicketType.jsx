@@ -1,5 +1,6 @@
 import React from "react";
 import { Bebas_Neue } from "next/font/google";
+import ToolTip from "./ToolTip";
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -31,7 +32,11 @@ function TicketType({
       {/* FOO-BILLET sektion */}
       <label className="flex justify-between" htmlFor="foo-billet">
         <div>
-          <h2 className="font-medium text-lg md:text-2xl">FOO-BILLET</h2>
+          <div className="flex items-center">
+            <h2 className="font-medium text-lg md:text-2xl">FOO-BILLET</h2>
+            <ToolTip text={"information tekst"} />
+          </div>
+
           <p className="text-base md:text-lg text-fooGrey-200">799 DKK</p>
         </div>
 
@@ -120,7 +125,10 @@ function TicketType({
       {/* VIP-BILLET sektion */}
       <label className="flex justify-between mt-10" htmlFor="vip-billet">
         <div>
+          <div className="flex items-center"> 
           <h2 className="font-medium text-lg md:text-2xl">VIP-BILLET</h2>
+          <ToolTip text={"information tekst"} />
+          </div>
           <p className="text-base md:text-lg text-fooGrey-200">1299 DKK</p>
         </div>
         <div className="flex items-center">
