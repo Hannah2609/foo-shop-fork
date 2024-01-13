@@ -9,6 +9,7 @@ import Payment from "./Payment";
 import EndPage from "./EndPage";
 import FinalOverview from "./FinalOverview";
 import Timer from "./Timer";
+import ProgressBar from "./ProgressBar";
 
 function Wrapper() {
   // Skift mellem views ud fra steps
@@ -28,7 +29,6 @@ function Wrapper() {
 
   const campingBtnDisabled = selectedArea === null;
   const [error, setError] = useState("");
-
 
   // antal telt tilføjelser
   const [twoPersonTentAmount, setTwoPersonTentAmount] = useState(0);
@@ -143,7 +143,10 @@ function Wrapper() {
   return (
     <>
       {step !== 0 && step !== 1 && step !== 5 && (
-        <Timer step={step} setStep={setStep} />
+        <section>
+          <ProgressBar step={step} />
+          <Timer step={step} setStep={setStep} />
+        </section>
       )}
       <main className="flex flex-wrap justify-center xl:mx-20">
         <form
@@ -233,7 +236,6 @@ function Wrapper() {
               RESERVER BILLETTER
             </button>
           </div>
-
           <div
             className={`flex flex-col m-10 sm:px-10 ${
               step === 2 ? "" : "hidden"
