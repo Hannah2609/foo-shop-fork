@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Steps, ConfigProvider } from "antd";
 
 const items = [
