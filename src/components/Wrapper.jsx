@@ -217,7 +217,7 @@ function Wrapper() {
             />
             <p className="text-right mt-6 text-red-500">{error}</p>
 
-            <div className="flex flex-col-reverse lg:justify-end lg:gap-4">
+            <div className="flex flex-col-reverse lg:flex-row lg:justify-end lg:gap-4">
               <TilbageKnap setStep={setStep} />
               <button
                 className="font-medium enabled:bg-fooPink-800 aria-disabled:bg-fooPink-800 aria-disabled:opacity-50 p-4 px-8 rounded-full w-full md:w-fit mt-10 place-self-end transition ease-in-out enabled:hover:-translate-y-1 enabled:hover:scale-110 enabled:hover:bg-fooPink-900 duration-300 enabled:cursor-pointer disabled:cursor-not-allowed
